@@ -34,7 +34,7 @@ public class KafkaStreamsTopology {
                         throw new RuntimeException("boom");
                     }
                     return List.of(key.toUpperCase(), value.toUpperCase());
-                }, Named.as("DLQ-FLATMAPVALUES-MADE-IN-MICHELIN"), "DLQ_TOPIC_FLATMAPVALUES_2", Produced.with(Serdes.String(), Serdes.String()))
+                }, Named.as("DLQ-FLATMAPVALUES-MADE-IN-MICHELIN-1"), "DLQ_TOPIC_FLATMAPVALUES_2", Produced.with(Serdes.String(), Serdes.String()))
                 .to("OUTPUT_TOPIC_FLATMAPVALUES_2");
 
         streamsBuilder
@@ -56,7 +56,7 @@ public class KafkaStreamsTopology {
                         throw new RuntimeException("boom");
                     }
                     return List.of(value.substring(0, 3), value.toUpperCase());
-                }, Named.as("DLQ-FLATMAPVALUES-MADE-IN-MICHELIN"), "DLQ_TOPIC_FLATMAPVALUES_4", Produced.with(Serdes.String(), Serdes.String()))
+                }, Named.as("DLQ-FLATMAPVALUES-MADE-IN-MICHELIN-2"), "DLQ_TOPIC_FLATMAPVALUES_4", Produced.with(Serdes.String(), Serdes.String()))
                 .to("OUTPUT_TOPIC_FLATMAPVALUES_4");
     }
 }

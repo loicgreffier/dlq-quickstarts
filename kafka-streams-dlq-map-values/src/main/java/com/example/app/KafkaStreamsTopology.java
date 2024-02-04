@@ -30,7 +30,7 @@ public class KafkaStreamsTopology {
                         throw new RuntimeException("boom");
                     }
                     return key.toUpperCase() + value.toUpperCase();
-                }, Named.as("DLQ-MAPVALUES-MADE-IN-MICHELIN"), "DLQ_TOPIC_MAPVALUES_2", Produced.with(Serdes.String(), Serdes.String()))
+                }, Named.as("DLQ-MAPVALUES-MADE-IN-MICHELIN-1"), "DLQ_TOPIC_MAPVALUES_2", Produced.with(Serdes.String(), Serdes.String()))
                 .to("OUTPUT_TOPIC_MAPVALUES_2");
 
         streamsBuilder
@@ -50,7 +50,7 @@ public class KafkaStreamsTopology {
                         throw new RuntimeException("boom");
                     }
                     return value.toUpperCase();
-                }, Named.as("DLQ-MAPVALUES-MADE-IN-MICHELIN"), "DLQ_TOPIC_MAPVALUES_4", Produced.with(Serdes.String(), Serdes.String()))
+                }, Named.as("DLQ-MAPVALUES-MADE-IN-MICHELIN-2"), "DLQ_TOPIC_MAPVALUES_4", Produced.with(Serdes.String(), Serdes.String()))
                 .to("OUTPUT_TOPIC_MAPVALUES_4");
     }
 }

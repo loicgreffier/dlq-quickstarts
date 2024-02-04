@@ -30,7 +30,7 @@ public class KafkaStreamsTopology {
                         throw new RuntimeException("boom");
                     }
                     return value.startsWith("A");
-                }, Named.as("DLQ-FILTER-MADE-IN-MICHELIN"), "DLQ_TOPIC_FILTER_2", Produced.with(Serdes.String(), Serdes.String()))
+                }, Named.as("DLQ-FILTER-MADE-IN-MICHELIN-1"), "DLQ_TOPIC_FILTER_2", Produced.with(Serdes.String(), Serdes.String()))
                 .to("OUTPUT_TOPIC_FILTER_2");
 
         streamsBuilder
@@ -50,7 +50,7 @@ public class KafkaStreamsTopology {
                         throw new RuntimeException("boom");
                     }
                     return !value.startsWith("A");
-                }, Named.as("DLQ-FILTERNOT-MADE-IN-MICHELIN"), "DLQ_TOPIC_FILTERNOT_3", Produced.with(Serdes.String(), Serdes.String()))
+                }, Named.as("DLQ-FILTERNOT-MADE-IN-MICHELIN-2"), "DLQ_TOPIC_FILTERNOT_3", Produced.with(Serdes.String(), Serdes.String()))
                 .to("OUTPUT_TOPIC_FILTERNOT_2");
     }
 }
